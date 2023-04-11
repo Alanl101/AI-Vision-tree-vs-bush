@@ -11,7 +11,7 @@ data_dir = Path(data_dir)
 
 train_ds = tf.keras.preprocessing.image_dataset_from_directory(
     data_dir,
-    validation_split=0.2,
+    validation_split=0.1,
     subset='training',
     seed=123,
     image_size=(256, 256),
@@ -20,7 +20,7 @@ train_ds = tf.keras.preprocessing.image_dataset_from_directory(
 
 val_ds = tf.keras.preprocessing.image_dataset_from_directory(
     data_dir,
-    validation_split=0.2,
+    validation_split=0.1,
     subset='validation',
     seed=123,
     image_size=(256, 256),
@@ -44,7 +44,7 @@ model = tf.keras.Sequential([
     layers.Conv2D(32, 3, padding='same', activation='relu'),
     layers.MaxPooling2D(),
     layers.Dropout(0.2),
-    layers.Conv2D(32, 3, padding='same', activation='relu'),
+    layers.Conv2D(64, 3, padding='same', activation='relu'),
     layers.MaxPooling2D(),
     layers.Dropout(0.2),
     layers.Flatten(),
